@@ -37,4 +37,28 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the tasks record associated with the user.
+     */
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
+
+    /**
+     * Get the timeTrackingEntries record associated with the user.
+     */
+    public function timeTrackingEntries()
+    {
+        return $this->hasMany(TimeTrackingEntry::class);
+    }
+
+    /**
+     * Get the projects record associated with the user.
+     */
+    public function projects()
+    {
+        return $this->hasMany(Project::class, 'project_user');
+    }
 }
