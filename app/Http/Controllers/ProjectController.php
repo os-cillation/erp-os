@@ -34,7 +34,8 @@ class ProjectController extends Controller
     {
         $this->validate($request, [
             'name' => ['required', 'min:3', 'max:255'],
-            'description' => ['sometimes', 'min:3']
+            'description' => ['sometimes', 'min:3'],
+            'users' => ['sometimes', 'array']
         ]);
 
         $currentUser = Auth::user();
@@ -43,10 +44,11 @@ class ProjectController extends Controller
         $users->add($currentUser);
 
         $project = new Project($request->request->all());
-        $project->users()->attach($users->toArray());
         $project->save();
 
-        return response()->json($project);
+        $project->users()->attach($users->pluck('id')->all());
+
+        return response()->json($users);
 
     }
 
@@ -64,17 +66,16 @@ class ProjectController extends Controller
             'description' => ['sometimes', 'min:3']
         ]);
 
-        $currentUser = Auth::user();
+        $currentUser = Auth::guard('api')->user();
 
-        $users = DB::table('users')->get()->whereIn('id', $request->request->get('users'));
-        $users->add($currentUser);
+        $users = DB::table('users')->get()->whereIn('id', array_merge((array) $request->request->get('users'), (array) $currentUser->id));
 
         $project = new Project($request->request->all());
         $project->save();
 
-        $project->users()->attach($currentUser);
+        $project->users()->attach($users->pluck('id')->toArray());
 
-        return response()->json($project);
+        return response()->json($currentUser);
     }
 
     /**

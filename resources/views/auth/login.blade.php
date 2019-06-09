@@ -26,21 +26,21 @@
                         @enderror
                     </div>
 
-                    <label for="password"
-                           class="uk-form-label">{{ __('Password') }}</label>
+                    <label for="password" class="uk-form-label">
+                        {{ __('Password') }}
+                    </label>
 
-                    <div class="col-md-6">
+                    <div class="uk-form-controls">
                         <input id="password" type="password"
                                class="uk-input @error('password') uk-form-danger @enderror" name="password"
                                required autocomplete="current-password">
-
+                    </div>
                         @error('password')
                         <div class="uk-alert-danger" uk-alert>
                             <a class="uk-alert-close" uk-close></a>
                             <p><strong>{{ $message }}</strong></p>
                         </div>
                         @enderror
-                    </div>
 
                     <div class="uk-form-controls uk-margin">
                         <input class="uk-checkbox" type="checkbox" name="remember"

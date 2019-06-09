@@ -21,15 +21,10 @@
     </div>
 </div>
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div id="app">
-                <passport-clients></passport-clients>
-                <passport-authorized-clients></passport-authorized-clients>
-                <!--<passport-personal-access-tokens></passport-personal-access-tokens>-->
-            </div>
-        </div>
-    </div>
+
+<div id="app">
+    <passport-clients></passport-clients>
+    <passport-authorized-clients></passport-authorized-clients>
+<!--<passport-personal-access-tokens></passport-personal-access-tokens>-->
 </div>
 @endsection
