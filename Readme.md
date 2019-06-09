@@ -68,7 +68,7 @@ vagrant up
 
 ## Testen ob die Anwendung läuft
 
-Anschließend könnt ihr im Browser eurer Wahl die IP: 192.168.10.10 aufrufen
+Anschließend könnt ihr im Browser die IP aufrufen, welche in der Homestead.yaml angegeben ist.
 
 
 ## Authors
