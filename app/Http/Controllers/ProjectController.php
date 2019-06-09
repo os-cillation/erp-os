@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Project;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -18,7 +19,8 @@ class ProjectController extends Controller
     public function index()
     {
         // $projects = Project::withTrashed()->get();
-        $projects = Project::all();
+        $projects = Project::all()
+            ->whereBetween('created_at', [$this->timeLimitStart, $this->timeLimitEnd]);
 
         return response()->json($projects);
     }

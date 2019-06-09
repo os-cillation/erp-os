@@ -16,7 +16,9 @@ class TimeTrackingEntryController extends Controller
      */
     public function index()
     {
-        $timeTrackingEntries = TimeTrackingEntry::all();
+        $timeTrackingEntries = TimeTrackingEntry::all()
+            ->whereBetween('created_at', [$this->timeLimitStart, $this->timeLimitEnd]);
+
         return response()->json($timeTrackingEntries);
     }
 
