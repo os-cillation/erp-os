@@ -19,3 +19,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('project','ProjectController');
+
+Route::apiResource('task','TaskController');
+Route::post('task/{project}/{user}', 'TaskController@store');
+
+Route::apiResource('timeTrackingEntry','TimeTrackingEntryController');
+Route::post('timeTrackingEntry/{user}/{task}', 'TimeTrackingEntryController@store');
