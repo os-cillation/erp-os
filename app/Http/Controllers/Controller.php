@@ -25,7 +25,7 @@ class Controller extends BaseController
 
     public function __construct(Request $request)
     {
-        $this->timeLimitStart = $request->get('timelimit', Carbon::now()->startOfMonth());
-        $this->timeLimitEnd = $request->get('timelimit', Carbon::now());
+        $this->timeLimitStart = $request->get('time_limit_start', Carbon::now()->startOfMonth());
+        $this->timeLimitEnd = $request->get('time_limit_end', Carbon::now());
     }
 }
