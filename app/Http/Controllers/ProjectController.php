@@ -43,7 +43,7 @@ class ProjectController extends Controller
         $users->add($currentUser);
 
         $project = new Project($request->request->all());
-        $project->users()->attach($users);
+        $project->users()->attach($users->toArray());
         $project->save();
 
         return response()->json($project);

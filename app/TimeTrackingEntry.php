@@ -28,7 +28,7 @@ class TimeTrackingEntry extends Model
      */
     public function user()
     {
-        return $this->hasOne(User::class);
+        return $this->belongsTo(User::class);
     }
 
     /**
@@ -36,6 +36,6 @@ class TimeTrackingEntry extends Model
      */
     public function task()
     {
-        return $this->hasOne(Task::class);
+        return $this->belongsTo(Task::class);
     }
 }
