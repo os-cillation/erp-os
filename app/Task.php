@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Kra8\Snowflake\HasSnowflakePrimary;
+use OwenIt\Auditing\Contracts\Auditable;
 
-class Task extends Model
+class Task extends Model implements Auditable
 {
-    use SoftDeletes, HasSnowflakePrimary;
+    use SoftDeletes, HasSnowflakePrimary, \OwenIt\Auditing\Auditable;
 
     /**
      * Indicates if the IDs are auto-incrementing.
