@@ -19,7 +19,7 @@ class TaskController extends Controller
     public function index()
     {
         $tasks = Task::all()
-            ->whereBetween('created_at', [$this->timeLimitStart, $this->timeLimitEnd]);;
+            ->whereBetween('created_at', [$this->timeLimitStart, $this->timeLimitEnd]);
 
         return response()->json($tasks);
     }
