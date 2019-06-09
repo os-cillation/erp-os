@@ -24,35 +24,6 @@ class ProjectController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @param Request $request
-     * @return void
-     * @throws ValidationException
-     */
-    public function create(Request $request)
-    {
-        $this->validate($request, [
-            'name' => ['required', 'min:3', 'max:255'],
-            'description' => ['sometimes', 'min:3'],
-            'users' => ['sometimes', 'array']
-        ]);
-
-        $currentUser = Auth::user();
-
-        $users = DB::table('users')->get()->whereIn('id', $request->request->get('users'));
-        $users->add($currentUser);
-
-        $project = new Project($request->request->all());
-        $project->save();
-
-        $project->users()->attach($users->pluck('id')->all());
-
-        return response()->json($users);
-
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param \Illuminate\Http\Request $request
@@ -86,30 +57,26 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Project  $project
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Project $project)
-    {
-        //
+        return response()->json($project);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Project  $project
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Project $project
      * @return \Illuminate\Http\Response
+     * @throws ValidationException
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $this->validate($request, [
+            'name' => ['required', 'min:3', 'max:255'],
+            'description' => ['sometimes', 'min:3']
+        ]);
+
+        $project->update($request->all());
+        return response()->json($project);
     }
 
     /**

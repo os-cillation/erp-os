@@ -11,6 +11,7 @@
             </div>
             <div class="uk-card-body">
                 <form method="POST" action="{{ route('login') }}">
+                    @csrf
                     <label class="uk-form-label">
                         {{ __('E-Mail Address') }}
                     </label>
