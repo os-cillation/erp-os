@@ -36,12 +36,12 @@
                                class="uk-input @error('password') uk-form-danger @enderror" name="password"
                                required autocomplete="current-password">
                     </div>
-                        @error('password')
-                        <div class="uk-alert-danger" uk-alert>
-                            <a class="uk-alert-close" uk-close></a>
-                            <p><strong>{{ $message }}</strong></p>
-                        </div>
-                        @enderror
+                    @error('password')
+                    <div class="uk-alert-danger" uk-alert>
+                        <a class="uk-alert-close" uk-close></a>
+                        <p><strong>{{ $message }}</strong></p>
+                    </div>
+                    @enderror
 
                     <div class="uk-form-controls uk-margin">
                         <input class="uk-checkbox" type="checkbox" name="remember"
