@@ -27601,8 +27601,8 @@ __webpack_require__.r(__webpack_exports__);
  * import UIkit
  */
 
- // UIkit.notification('Hello world.');
 
+uikit__WEBPACK_IMPORTED_MODULE_0___default.a.notification('Hello world.');
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -27908,8 +27908,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\danie\PhpstormProjects\erp-os\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\danie\PhpstormProjects\erp-os\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/os-cillation/PhpstormProjects/erp/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/os-cillation/PhpstormProjects/erp/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
