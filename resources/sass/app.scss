@@ -4,5 +4,6 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~uikit/src/scss/variables-theme";
+@import "~uikit/src/scss/mixins-theme";
+@import "~uikit/src/scss/uikit-theme";
