@@ -23,7 +23,7 @@ class PreviousTask extends Model implements Auditable
      */
     public function task()
     {
-        return $this->hasOne(Task::class);
+        return $this->belongsTo(Task::class);
     }
 
     /**
@@ -31,6 +31,6 @@ class PreviousTask extends Model implements Auditable
      */
     public function fulfillingTask()
     {
-        return $this->hasMany(Task::class);
+        return $this->belongsTo(Task::class);
     }
 }

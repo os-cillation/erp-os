@@ -27601,8 +27601,8 @@ __webpack_require__.r(__webpack_exports__);
  * import UIkit
  */
 
+ // UIkit.notification('Hello world.');
 
-uikit__WEBPACK_IMPORTED_MODULE_0___default.a.notification('Hello world.');
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
