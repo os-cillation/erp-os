@@ -16,9 +16,10 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Project $project)
     {
         $tasks = Task::all()
+            ->where('project', $project->id)
             ->whereBetween('created_at', [$this->timeLimitStart, $this->timeLimitEnd]);
 
         return response()->json($tasks);

@@ -20,8 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('project','ProjectController');
 
-Route::apiResource('task','TaskController');
+Route::apiResource('task','TaskController')->only(['delete']);
 Route::post('task/{project}/{user}', 'TaskController@store');
+Route::get('task/{project}', 'TaskController@index')->name('task.index');
 
 Route::apiResource('timeTrackingEntry','TimeTrackingEntryController');
 Route::post('timeTrackingEntry/{user}/{task}', 'TimeTrackingEntryController@store');
